@@ -1,6 +1,6 @@
 
 <NationalParks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi.noNamespaceSchemaLocation=>
+xsi.noNamespaceSchemaLocation=https://raw.githubusercontent.com/ThomasFilby/cse445_a4/refs/heads/main/NationalParks.xml>
 
 <!--1-->
 <NationalPark Rating="4.8">
