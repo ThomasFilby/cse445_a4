@@ -1,0 +1,143 @@
+<!--error 1, the root element name is NationalPark-->
+<NationalPark xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation=>
+
+<!--1-->
+<NationalPark Rating="4.8">
+<Name>Petrified Forest</Name>
+<Name>Siberia</Name>  <!--error 5, two names are provided for one of the national parks-->
+<!--error 3, a Phone element is missing on one of the national parks-->
+<!--error 2, a required atribute is missing-->
+<Address>
+<Number>1</Number>
+<Street>Park Rd</Street>
+<City>Petrified Forest National Park</City>
+<State>AZ</State>
+<Zip>86028</Zip>
+</Address>
+</NationalPark>
+
+<!--2-->
+<NationalPark Rating="4.9">
+<Name>Grand Canyon</Name>
+<Phone>928-638-7496</Phone>
+<Phone>888-297-2757</Phone>
+<Phone>866-499-2574</Phone>
+<Address NearestAirport="Flagstaff">
+<Number>8</Number>
+<Street>South Entrance Road</Street>
+<City>Grand Canyon</City>
+<State>AZ</State>
+<Zip>86023</Zip>
+<!--error 4, An address element has no closing tag-->
+</NationalPark>
+
+<!--3-->
+<NationalPark Rating="4.9">
+<Name>Great Smoky Mountains</Name>
+<Phone>865-436-1200</Phone>
+<Address NearestAirport="McGhee Tyson">
+<Number>107</Number>
+<Street>Park Headquarters Road</Street>
+<City>Gatlinburg</City>
+<State>TN</State>
+<Zip>37738</Zip>
+</Address>
+</NationalPark>
+
+<!--4-->
+<NationalPark Rating="4.7">
+<Name>Wrangell-St. Elias</Name>
+<Phone>907-822-5234</Phone>
+<Address NearestAirport="Ted Stevens Anchorage">
+<Number>104</Number>
+<Street>Richardson Hwy</Street>
+<City>Copper Center</City>
+<State>AK</State>
+<Zip>99573</Zip>
+</Address>
+</NationalPark>
+
+<!--5-->
+<NationalPark Rating="4.8">
+<Name>Saguaro</Name>
+<Phone>520-733-5153</Phone>
+<Address NearestAirport="Tucson">
+<Number>3693</Number>
+<Street>S. Old Spanish Trail</Street>
+<City>Tuscon</City>
+<State>AZ</State>
+<Zip>85730</Zip>
+</Address>
+</NationalPark>
+
+<!--6-->
+<NationalPark> 
+<Name>Gateway Arch</Name>
+<Phone>314-655-1600</Phone>
+<Phone>314-544-8242</Phone>
+<Address NearestAirport="St. Louis Lambert">
+<Number>11</Number>
+<Street>North 4th Street</Street>
+<City>St. Louis</City>
+<State>MO</State>
+<Zip>63102</Zip>
+</Address>
+</NationalPark>
+
+<!--7-->
+<NationalPark> 
+<Name>Yosemite</Name>
+<Phone>209-372-0200</Phone>
+<Phone>209-192-5313</Phone>
+<Address NearestAirport="Fresno">
+<Number>9037</Number>
+<Street>Village Drive</Street>
+<City>Yosemite</City>
+<State>CA</State>
+<Zip>95389</Zip>
+</Address>
+</NationalPark>
+
+<!--8-->
+<NationalPark> 
+<Name>Redwood</Name>
+<Phone>707-464-6101</Phone>
+<Address NearestAirport="California Redwood Coast-Humbolt County">
+<Number>119441</Number>
+<Street>U.S Highway 101</Street>
+<City>Orick</City>
+<State>CA</State>
+<Zip>95555</Zip>
+</Address>
+</NationalPark>
+
+<!--9-->
+<NationalPark> 
+<Name>Glacier</Name>
+<Phone>406-888-7800</Phone>
+<Address NearestAirport="Glacier Park">
+<Number>64</Number>
+<Street>Grinnell Dr</Street>
+<City>West Glacier</City>
+<State>MT</State>
+<Zip>59936</Zip>
+</Address>
+</NationalPark>
+
+<!--10-->
+<NationalPark> 
+<Name>Bryce Canyon</Name>
+<Phone>435-834-5322</Phone>
+<Address NearestAirport="Cedar City">
+<Number>165</Number>
+<Street>S Main St</Street>
+<City>Bryce Canyon City</City>
+<State>UT</State>
+<Zip>84764</Zip>
+</Address>
+</NationalPark>
+
+</NationalPark>
+<!--error 1, the root element name is NationalPark-->
+
