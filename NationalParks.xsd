@@ -1,0 +1,32 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:element name="NationalParks" type="Parks"/> <!--top level-->
+<xsd:complexType name="Parks">
+<xsd:sequence>
+<xsd:element name="NationalPark" type="Park" minOccurs="10" maxOccurs="unbounded"/> <!--second lvl-->
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="Park">
+<xsd:sequence>
+<xsd:element name="Name" type ="xsd:string" minOccurs="1" maxOccurs="1"/>  <!--third lvl-->
+<xsd:element name="Phone" type ="PhoneType" minOccurs="1" maxOccurs="unbounded"/>
+<xsd:element name="Address" type ="addressType" minOccurs="1" maxOccurs="1"/>
+</xsd:sequence>
+<xsd:attribute name="Rating" type ="xsd:decimal" use="optional"/>
+</xsd:complexType>
+<xsd:complexType name="addressType">
+<xsd:sequence>
+<xsd:element name="Number" type="xsd:int"/> <!--fouth level-->
+<xsd:element name="Street" type="xsd:string"/>
+<xsd:element name="City" type="xsd:string"/>
+<xsd:element name="State" type="xsd:string"/>
+<xsd:element name="Zip" type="xsd:string"/>
+</xsd:sequence>
+<xsd:attribute name="NearestAirport" type ="xsd:string" use="required"/>
+</xsd:complexType>
+<!--define formats-->
+<xsd:simpleType name = "PhoneType">
+<xsd:restriction base = "xsd:string">
+<xsd:pattern value ="\d{3}\-\d{3}\-\d{4}"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:schema>
