@@ -1,14 +1,12 @@
-<!--error 1, the root element name is NationalPark-->
-<NationalPark xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:noNamespaceSchemaLocation=https://raw.githubusercontent.com/ThomasFilby/cse445_a4/refs/heads/main/NationalParks.xsd">
+
+<NationalParks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation=>
 
 <!--1-->
 <NationalPark Rating="4.8">
 <Name>Petrified Forest</Name>
-<Name>Siberia</Name>  <!--error 5, two names are provided for one of the national parks-->
-<!--error 3, a Phone element is missing on one of the national parks-->
-<!--error 2, a required atribute is missing-->
-<Address>
+<Phone>928-524-6228</Phone>
+<Address NearestAirport="Flagstaff">
 <Number>1</Number>
 <Street>Park Rd</Street>
 <City>Petrified Forest National Park</City>
@@ -29,7 +27,7 @@ xsi:noNamespaceSchemaLocation=https://raw.githubusercontent.com/ThomasFilby/cse4
 <City>Grand Canyon</City>
 <State>AZ</State>
 <Zip>86023</Zip>
-<!--error 4, An address element has no closing tag-->
+</Address>
 </NationalPark>
 
 <!--3-->
@@ -138,5 +136,6 @@ xsi:noNamespaceSchemaLocation=https://raw.githubusercontent.com/ThomasFilby/cse4
 </Address>
 </NationalPark>
 
-</NationalPark>
-<!--error 1, the root element name is NationalPark-->
+</NationalParks>
+
+
