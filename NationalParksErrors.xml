@@ -23,9 +23,9 @@ xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/ThomasFilby/cse
 <Phone>928-638-7496</Phone>
 <Phone>888-297-2757</Phone>
 <Phone>866-499-2574</Phone>
-<Address NearestAirport="Flagstaff">
+<Address NearestAirport="FlagStaff">
 <Number>8</Number>
-<Street>South Entrance Road</Street>
+<Street>S Entrance Road</Street>
 <City>Grand Canyon</City>
 <State>AZ</State>
 <Zip>86023</Zip>
@@ -138,6 +138,18 @@ xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/ThomasFilby/cse
 </Address>
 </NationalPark>
 
+<!--11-->
+<NationalPark> 
+<Name>Zion</Name>
+<Phone>435-772-3256</Phone>
+<Address NearestAirport="Cedar City">
+<Number>1</Number>
+<Street>Zion Park Blvd</Street>
+<City>Springdale</City>
+<State>UT</State>
+<Zip>84767</Zip>
+</Address>
+</NationalPark>
+
 </NationalPark>
 <!--error 1, the root element name is NationalPark-->
-
