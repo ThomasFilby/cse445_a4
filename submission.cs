@@ -39,6 +39,7 @@ namespace ConsoleApp1
         }
      
         // Q2.1
+        //validates the XML at xmlURL against the xsd at xsdUrl, returns errors or no errors.
         public static string Verification(string xmlUrl, string xsdUrl)
         {
             string errors = ""; //set errors
@@ -76,10 +77,11 @@ namespace ConsoleApp1
             }
             return errors;
         }
-            //return "No Error" if XML is valid. Otherwise, return the desired exception message.
+            //return "No errors are found" if XML is valid. Otherwise, return the desired exception message.
         
  
-
+        //converts a XML files at xmlUrl and converts it to JSON
+        //root attributes and comments are removed for the sake of output
         public static string Xml2Json(string xmlUrl)
         {
             string text = DownloadContent(xmlUrl);//get content from helper
