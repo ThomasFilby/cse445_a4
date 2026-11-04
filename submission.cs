@@ -82,6 +82,7 @@ namespace ConsoleApp1
         //root attributes and comments are removed for the sake of output
         public static string Xml2Json(string xmlUrl)
         {
+            try{
             string text = DownloadContent(xmlUrl);//get content from helper
             XmlDocument document = new XmlDocument();//assign xml document
             document.LoadXml(text);//load text into doc
@@ -94,6 +95,11 @@ namespace ConsoleApp1
             string jsonText = JsonConvert.SerializeXmlNode(document, Newtonsoft.Json.Formatting.Indented);//returned as formatted JSON
             return jsonText;
             // The returned jsonText needs to be de-serializable by Newtonsoft.Json package. (JsonConvert.DeserializeXmlNode(jsonText))
+        }
+        catch (Exception ex)
+            {
+                return "Error: " + ex.Message;
+            }
         }
 
         // Helper method to download content from URL
