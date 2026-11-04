@@ -91,7 +91,8 @@ namespace ConsoleApp1
             {
                 comments[i].ParentNode.RemoveChild(comments[i]);
             }
-            return JsonConvert.SerializeXmlNode(document, Newtonsoft.Json.Formatting.Indented);//returned as formatted JSON
+            string jsonText = JsonConvert.SerializeXmlNode(document, Newtonsoft.Json.Formatting.Indented);//returned as formatted JSON
+            return jsonText;
             // The returned jsonText needs to be de-serializable by Newtonsoft.Json package. (JsonConvert.DeserializeXmlNode(jsonText))
         }
 
