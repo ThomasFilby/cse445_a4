@@ -89,7 +89,7 @@ namespace ConsoleApp1
             XmlNodeList comments = document.SelectNodes("//comment()");//xml comments interfering with JSON conversion, so comments are ignored
             for ( int i = comments.Count -1; i >= 0; i--)
             {
-                comments[i].ParentNode.RemoveChild(commments[i]);
+                comments[i].ParentNode.RemoveChild(comments[i]);
             }
             return JsonConvert.SerializeXmlNode(document, Newtonsoft.Json.Formatting.Indented);//returned as formatted JSON
             // The returned jsonText needs to be de-serializable by Newtonsoft.Json package. (JsonConvert.DeserializeXmlNode(jsonText))
