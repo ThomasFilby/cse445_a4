@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System.ComponentModel;
 using System.Linq.Expressions;
-using System.Text.Json.Serialization;
+
 
 
 
@@ -23,7 +23,7 @@ namespace ConsoleApp1
     public class Submission
     {
         public static string xmlURL = "https://raw.githubusercontent.com/ThomasFilby/cse445_a4/refs/heads/main/NationalParks.xml";
-        public static string xmlErrorURL = "https://raw.githubusercontent.com/ThomasFilby/cse445_a4/refs/heads/main/NatioanlParksErrors.xml";
+        public static string xmlErrorURL = "https://raw.githubusercontent.com/ThomasFilby/cse445_a4/refs/heads/main/NationalParksErrors.xml";
         public static string xsdURL = "https://raw.githubusercontent.com/ThomasFilby/cse445_a4/refs/heads/main/NationalParks.xsd";
 
         public static void Main(string[] args)
@@ -31,10 +31,8 @@ namespace ConsoleApp1
             string result = Verification(xmlURL, xsdURL);
             Console.WriteLine(result);
 
-
             result = Verification(xmlErrorURL, xsdURL);
             Console.WriteLine(result);
-
 
             result = Xml2Json(xmlURL);
             Console.WriteLine(result);
@@ -50,39 +48,49 @@ namespace ConsoleApp1
                 XmlReaderSettings settings = new XmlReaderSettings(); //create new reader settings
                 settings.ValidationType = ValidationType.Schema; //assign settings to type Schem
 
+                settings.ValidationEventHandler += (sender, args) => //subscription to track total errors
+                    { 
+                    errors += args.Message + " Line Number: " + args.Exception.LineNumber +  //compile  formatted error results
+                    " Position: " + args.Exception.LinePosition + "\n";
+                    };
+
                 try {
                     settings.Schemas.Add(null, xsdUrl);//add xsd
                     XmlReader reader = XmlReader.Create(xmlUrl, settings);//create new reader
                     while (reader.Read()){}//let it read   
                     }
-                    catch(XmlSchemaValidationException Error)// broke xsd rules
-                    {
-                        return Error.Message + " Line Number: " + Error.LineNumber + " Position: " + Error.LinePosition;//return content and position
-                    }
+                   
                     catch(XmlException Error) //xml errors
                 {
-                    return Error.Message + " Line Number: " + Error.LineNumber + " Position: " + Error.LinePosition;
+                    return errors + Error.Message + " Line Number: " + Error.LineNumber + " Position: " + Error.LinePosition;
                 }
                 catch (Exception Error) //for anything else
                 {
                     return "Error: " + Error.Message;
                 }
 
-            
-                return "No errors are found";
-            
+            if (errors == "")
+                {
+                return "No errors are found";    
+                }
             }
+            return errors;
         }
             //return "No Error" if XML is valid. Otherwise, return the desired exception message.
         
  
-//2.2
+
         public static string Xml2Json(string xmlUrl)
         {
             string text = DownloadContent(xmlUrl);//get content from helper
             XmlDocument document = new XmlDocument();//assign xml document
             document.LoadXml(text);//load text into doc
             document.DocumentElement.Attributes.RemoveAll();//remove attributes from root tag
+            XmlNodeList comments = document.SelectNodes("//comment()");//xml comments interfering with JSON conversion, so comments are ignored
+            for ( int i = comments.Count -1; i >= 0; i--)
+            {
+                comments[i].ParentNode.RemoveChild(commments[i]);
+            }
             return JsonConvert.SerializeXmlNode(document, Newtonsoft.Json.Formatting.Indented);//returned as formatted JSON
             // The returned jsonText needs to be de-serializable by Newtonsoft.Json package. (JsonConvert.DeserializeXmlNode(jsonText))
         }
