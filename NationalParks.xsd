@@ -1,4 +1,8 @@
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns="https://github.com/ThomasFilby/cse445_a4"
+targetNamespace="https://github.com/ThomasFilby/cse445_a4"
+elementFormDefault="qualified"
+attributeFormDefault="unqualified">
 <xsd:element name="NationalParks" type="Parks"/> <!--top level-->
 <xsd:complexType name="Parks">
 <xsd:sequence>
